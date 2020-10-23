@@ -98,3 +98,19 @@ img {
     bottom: 15px;
     color: red;
 }
+#hasil{
+    color: rgb(25, 3, 85);
+    display: flex;
+    justify-content: space-between
+}
+#reset{
+    width: 80%;
+    height: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: maroon;
+    cursor: pointer;
+}
+#reset:active{
+  margin-top: 5px;
+}

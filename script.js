@@ -1,4 +1,6 @@
-let score = 0
+let win = 0
+let lose = 0
+let draw = 0
 function optCom(){
     let opt = Math.floor(Math.random() * 3)
     switch (opt) {
@@ -15,26 +17,30 @@ function optCom(){
 }
 function play(com, player){
     if(com == player){
+        draw++
         return `SERI`
     }else if(player == `batu`){
         if(com == `kertas`){
+            lose++
             return `KALAH`
         }else{
-            score++
+            win++
             return `MENANG`
         }
     }else if(player == `gunting`){
         if(com == `kertas`){
-            score++
+            win++
             return `MENANG`
         }else{
+            lose++
             return `KALAH`
         }
     }else if(player == `kertas`){
         if(com == `batu`){
-            score++
+            win++
             return `MENANG`
         }else{
+            lose++
             return `KALAH`
         }
 }
@@ -125,11 +131,27 @@ playKertas.addEventListener('click' ,function() {
 let awal = document.getElementById(`info`)
 function reset( ){
     let imgAwal = document.getElementById('img-komputer')
-    let skor = document.getElementById('score')
-    skor.innerText = `Score: ${score}`
+    let wins = document.getElementById('win')
+    let loses = document.getElementById('lose')
+    let draws = document.getElementById('draw')
+    wins.innerText = `WIN: ${win}`
+    loses.innerText = `LOSE: ${lose}`
+    draws.innerText = `DRAW: ${draw}`
     setTimeout(function(){
-        imgAwal.setAttribute('src', './putih.jpg') ; 
+        imgAwal.setAttribute('src', './putih.jpg')  
         awal.innerHTML ='<h2>Are You Ready?</h2>'
-     }, 2000);
+     }, 5000);
     
+}
+function resetScores(){
+    win = 0
+    lose = 0
+    draw = 0
+    let wins = document.getElementById('win')
+    let loses = document.getElementById('lose')
+    let draws = document.getElementById('draw')
+    wins.innerText = `WIN: ${win}`
+    loses.innerText = `LOSE: ${lose}`
+    draws.innerText = `DRAW: ${draw}`
+    awal.innerHTML ='<h2>Are You Ready?</h2>'
 }
